@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0d1117">
+<title>🐍 Python Learning Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+<div class="shell">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-row">
+      <span class="logo-snake">🐍</span>
+      <div class="logo-text"><h1>python_tracker</h1><p>90-day curriculum</p></div>
+      <button class="sidebar-close" onclick="closeSidebar()">✕</button>
+    </div>
+  </div>
+  <div class="sidebar-progress">
+    <div class="sp-label"><span>overall progress</span><span id="sb-pct">0%</span></div>
+    <div class="prog-track"><div class="prog-fill" id="sb-prog" style="width:0%"></div></div>
+  </div>
+  <div class="sidebar-stats">
+    <div class="sstat"><div class="sstat-val" id="sb-done">0</div><div class="sstat-lbl">tasks done</div></div>
+    <div class="sstat"><div class="sstat-val" id="sb-total">0</div><div class="sstat-lbl">total tasks</div></div>
+    <div class="sstat"><div class="sstat-val" id="sb-days">0</div><div class="sstat-lbl">days done</div></div>
+    <div class="sstat"><div class="sstat-val">135h</div><div class="sstat-lbl">study hours</div></div>
+  </div>
+  <nav class="sidebar-nav" id="sidebar-nav"></nav>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="topbar">
+    <button class="hamburger" onclick="openSidebar()" aria-label="Open menu">☰</button>
+    <div class="filter-scroll">
+      <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+      <button class="filter-btn" onclick="setFilter('today',this)">Today</button>
+      <button class="filter-btn" onclick="setFilter('week',this)">This Week</button>
+      <button class="filter-btn" onclick="setFilter('pending',this)">Pending</button>
+      <button class="filter-btn" onclick="setFilter('done',this)">Done</button>
+    </div>
+    <div class="topbar-right">
+      <span class="topbar-date" id="topbar-date"></span>
+      <span class="today-chip" id="topbar-day">Day —</span>
+    </div>
+  </div>
+
+  <div class="content" id="content"></div>
+</div>
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-bottom">
+  <div class="mobile-bottom-inner">
+    <button class="mob-btn active" onclick="setFilterMob('all',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      All
+    </button>
+    <button class="mob-btn" onclick="setFilterMob('today',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 16 14"/></svg>
+      Today
+    </button>
+    <button class="mob-btn" onclick="setFilterMob('pending',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Pending
+    </button>
+    <button class="mob-btn" onclick="setFilterMob('done',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 6 9 17 4 12"/></svg>
+      Done
+    </button>
+    <button class="mob-btn" onclick="openSidebar()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      Menu
+    </button>
+  </div>
+</nav>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
